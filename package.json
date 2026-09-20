@@ -1,0 +1,39 @@
+{
+  "name": "prompt-compressor",
+  "version": "0.1.0",
+  "description": "Standalone prompt compaction, compression, deduplication, caching, token-cost, and spend-governance toolkit extracted from GALXAI.",
+  "type": "module",
+  "private": false,
+  "engines": {
+    "node": ">=20"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./broccolidb": {
+      "types": "./dist/core/broccolidb/index.d.ts",
+      "import": "./dist/core/broccolidb/index.js"
+    },
+    "./eval": {
+      "types": "./dist/core/broccolidb/eval/index.d.ts",
+      "import": "./dist/core/broccolidb/eval/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "docs"
+  ],
+  "scripts": {
+    "build": "node scripts/normalize-relative-specifiers.mjs && tsc -p tsconfig.json",
+    "typecheck": "node scripts/normalize-relative-specifiers.mjs && tsc -p tsconfig.json --noEmit",
+    "test": "npm run build && node --test test/*.test.mjs"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "^5.0.0"
+  }
+}
