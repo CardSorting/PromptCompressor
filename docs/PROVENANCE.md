@@ -8,9 +8,11 @@ The port includes the reusable implementation under `src/core/broccolidb` and se
 
 `src/PromptCompressor.ts` is the package-level composition layer. It delegates to the extracted implementations and does not claim ownership of the excluded application systems.
 
-## What this document means
+## License boundary
 
-This file records engineering lineage and review obligations. It is not a license grant, a warranty of provider pricing, or a claim that every transitive dependency has the same terms as this package.
+The standalone distribution is licensed under the [Apache License, Version 2.0](../LICENSE), with the SPDX identifier `Apache-2.0` declared in `package.json`. The license applies to original PromptCompressor packaging, documentation, composition code, generated output, and contributions controlled by the maintainers unless a file or dependency states otherwise.
+
+This file records engineering lineage and review obligations. It is not a warranty of provider pricing or a claim that every transitive dependency or extracted upstream file has the same terms as this package.
 
 Before redistributing source or a package archive, maintainers should:
 
@@ -18,9 +20,9 @@ Before redistributing source or a package archive, maintainers should:
 2. preserve required attribution, notices, and third-party license texts;
 3. review the licenses of new runtime and development dependencies;
 4. verify that generated output does not add unreviewed copied material;
-5. keep this document and the package metadata aligned with the confirmed result.
+5. keep this document, [`NOTICE`](../NOTICE), `LICENSE`, and the package metadata aligned with the confirmed result.
 
-The `package.json` `files` list controls package contents; it does not replace full license or notice files when those are required by upstream terms.
+The `package.json` `files` list controls package contents; it does not replace full license or notice files when those are required by upstream terms. See [LICENSING.md](LICENSING.md) for the human-readable scope and contribution rules.
 
 ## Verification trail
 

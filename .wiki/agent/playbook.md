@@ -55,3 +55,4 @@ The package can advise or calculate; the host decides, invokes, persists, bills,
 - [ADR-001](../adr/ADR-001-standalone-boundary.md)
 - [ADR-002](../adr/ADR-002-evidence-and-accounting.md)
 - [ADR-003](../adr/ADR-003-knowledge-base-and-doc-suite.md)
+- [ADR-004](../adr/ADR-004-licensing-and-provenance.md)

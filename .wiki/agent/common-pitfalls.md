@@ -10,4 +10,4 @@
 - Do not edit `dist/` manually; regenerate it from `src/`.
 - Do not assume process-local WAL, CAS, cache, lease, or analytics state is durable or cross-process.
 - Do not let documentation drift from `src/index.ts`, the facade modes, or the smoke tests.
-- Do not treat source extraction provenance as a license grant; review upstream and dependency terms before redistribution.
+- Do not treat the package's Apache-2.0 declaration as relicensing third-party or separately licensed extracted material; review upstream and dependency terms before redistribution.

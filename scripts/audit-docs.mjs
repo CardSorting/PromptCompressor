@@ -24,6 +24,10 @@ function requireText(relativePath, text) {
 const requiredFiles = [
   'README.md',
   'CONTRIBUTING.md',
+  'LICENSE',
+  'NOTICE',
+  'SECURITY.md',
+  'CHANGELOG.md',
   'docs/README.md',
   'docs/ARCHITECTURE.md',
   'docs/GETTING_STARTED.md',
@@ -31,6 +35,7 @@ const requiredFiles = [
   'docs/OPERATIONS.md',
   'docs/PORTING_INVENTORY.md',
   'docs/PROVENANCE.md',
+  'docs/LICENSING.md',
   'docs/DEVELOPMENT.md',
   '.wiki/index.md',
   '.wiki/agent/playbook.md',
@@ -49,7 +54,14 @@ requireText('docs/README.md', '.wiki/index.md')
 requireText('docs/README.md', 'npm run docs:check')
 requireText('docs/ARCHITECTURE.md', 'reconcile provider usage')
 requireText('docs/ARCHITECTURE.md', 'receiving application owns')
-requireText('docs/PROVENANCE.md', 'not a license grant')
+requireText('LICENSE', 'Apache License')
+requireText('LICENSE', 'Version 2.0')
+requireText('LICENSE', 'END OF TERMS AND CONDITIONS')
+requireText('NOTICE', 'https://github.com/CardSorting/PromptCompressor')
+requireText('NOTICE', 'docs/LICENSING.md')
+requireText('docs/LICENSING.md', 'Apache License, Version 2.0')
+requireText('docs/LICENSING.md', 'Third-party material')
+requireText('docs/PROVENANCE.md', 'Apache License, Version 2.0')
 requireText('CONTRIBUTING.md', 'npm run docs:check')
 
 const wikiIndex = read('.wiki/index.md')
@@ -91,7 +103,10 @@ const packageJson = JSON.parse(read('package.json'))
 for (const script of ['check', 'docs:check']) {
   if (!packageJson.scripts?.[script]) failures.push(`package.json: missing ${script} script`)
 }
-for (const file of ['README.md', 'CONTRIBUTING.md', 'docs']) {
+if (packageJson.license !== 'Apache-2.0') {
+  failures.push(`package.json: expected license Apache-2.0, got ${JSON.stringify(packageJson.license)}`)
+}
+for (const file of ['README.md', 'LICENSE', 'NOTICE', 'CONTRIBUTING.md', 'SECURITY.md', 'CHANGELOG.md', 'docs']) {
   if (!packageJson.files?.includes(file)) {
     failures.push(`package.json: files does not include ${file}`)
   }

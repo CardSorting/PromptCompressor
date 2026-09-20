@@ -2,6 +2,7 @@
   "name": "prompt-compressor",
   "version": "0.1.0",
   "description": "Standalone prompt compaction, compression, deduplication, caching, token-cost, and spend-governance toolkit extracted from GALXAI.",
+  "license": "Apache-2.0",
   "type": "module",
   "private": false,
   "engines": {
@@ -25,7 +26,11 @@
   "files": [
     "dist",
     "README.md",
+    "LICENSE",
+    "NOTICE",
     "CONTRIBUTING.md",
+    "SECURITY.md",
+    "CHANGELOG.md",
     "docs"
   ],
   "scripts": {

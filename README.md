@@ -59,6 +59,9 @@ const stream = BroccoliCompactionFacade.compact({
 - Use the [porting inventory](docs/PORTING_INVENTORY.md) and [provenance notes](docs/PROVENANCE.md) when tracing the extraction.
 - The [agent knowledge base](.wiki/index.md) contains handoff rules, patterns, pitfalls, and ADRs.
 - The [development and release guide](docs/DEVELOPMENT.md) covers validation and package maintenance.
+- [License and provenance](docs/LICENSING.md) explains the Apache-2.0 scope and extracted-source boundary.
+- [Security policy](SECURITY.md) covers sensitive prompts, cache isolation, and responsible reporting.
+- [Changelog](CHANGELOG.md) records package-level releases and documentation milestones.
 
 ## Development
 
@@ -78,3 +81,7 @@ npm run docs:check
 ```
 
 The package has no runtime dependencies. TypeScript and Node type definitions are development-only dependencies. It transforms and accounts for data locally; the host application still owns model calls, credentials, durable billing records, and provider reconciliation.
+
+## License
+
+The standalone package is distributed under the [Apache License, Version 2.0](LICENSE). See [NOTICE](NOTICE) and the [licensing guide](docs/LICENSING.md) for provenance and third-party material boundaries.

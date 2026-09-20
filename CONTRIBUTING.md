@@ -4,7 +4,7 @@ PromptCompressor is a portable concept package. Contributions should improve det
 
 ## Before changing code
 
-Read [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md), the relevant module guide, [docs/PROVENANCE.md](docs/PROVENANCE.md), and the [agent playbook](.wiki/agent/playbook.md). Inspect the source and public exports before changing a contract.
+Read [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md), the relevant module guide, [docs/PROVENANCE.md](docs/PROVENANCE.md), [docs/LICENSING.md](docs/LICENSING.md), and the [agent playbook](.wiki/agent/playbook.md). Inspect the source and public exports before changing a contract.
 
 ## Development loop
 
@@ -42,5 +42,6 @@ Use `docs/ARCHITECTURE.md` for cross-module contracts, the task guides for detai
 - [ ] `npm pack --dry-run` includes the intended package docs.
 - [ ] README, API, architecture, and operations docs reflect public behavior.
 - [ ] The agent knowledge base and ADRs are updated for boundary or evidence changes.
+- [ ] `LICENSE`, `NOTICE`, `docs/LICENSING.md`, and `package.json` remain consistent.
 - [ ] Provenance and dependency-license review is complete for newly copied material.
 - [ ] No credentials, local databases, generated secrets, or `node_modules` are committed.

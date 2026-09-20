@@ -35,10 +35,11 @@ Avoid treating the character-based token estimate as a billing truth. Provider-r
 
 - `npm run typecheck` passes.
 - `npm test` passes.
-- `npm pack --dry-run` includes `dist`, `README.md`, and `docs`.
+- `npm pack --dry-run` includes `dist`, `README.md`, `LICENSE`, `NOTICE`, `CONTRIBUTING.md`, `SECURITY.md`, `CHANGELOG.md`, and `docs`.
 - `npm run docs:check` passes and the package documentation map points to every maintained guide.
 - `package.json` and `package-lock.json` versions match.
 - README/API docs reflect new public methods or modes.
+- `LICENSE`, `NOTICE`, `docs/LICENSING.md`, and `package.json` agree on the declared license and scope.
 - Provenance and licensing review is complete for any newly copied source or dependency.
 - No credentials, local database files, `node_modules`, or generated secrets are committed.
 

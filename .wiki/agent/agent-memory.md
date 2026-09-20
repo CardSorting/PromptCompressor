@@ -11,4 +11,4 @@ These are durable constraints for future agents.
 7. **Keep source and result traceable.** Preserve hashes and enough metadata to reproduce a transformation and explain a cost delta.
 8. **Keep generated output synchronized.** Changes under `src/` should be followed by `npm run build`; never edit `dist/` by hand.
 9. **Keep one documentation authority.** Update the canonical guide, wiki handoff material, and an ADR when a boundary or evidence rule changes.
-10. **Review provenance before redistribution.** This package records extraction lineage; maintainers must confirm source and dependency rights before release.
+10. **Preserve the licensing boundary.** `LICENSE`, `NOTICE`, `docs/LICENSING.md`, and `package.json` declare Apache-2.0 for standalone materials; they do not relicense third-party or separately licensed extracted material.

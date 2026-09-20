@@ -1,0 +1,18 @@
+PromptCompressor
+Copyright (c) 2026 William Andrew Cruz (bozoegg / CardSorting) and PromptCompressor contributors.
+
+This standalone distribution is licensed under the Apache License, Version 2.0.
+See the accompanying LICENSE file for the complete license text.
+
+PromptCompressor is a standalone extraction and composition of prompt compaction,
+compression, caching, token-cost, routing, and spend-governance concepts from the
+GALXAI source tree. It does not include GALXAI's application gateway, framework
+routes, provider credentials, UI, or deployment runtime.
+
+The standalone package is maintained at:
+
+https://github.com/CardSorting/PromptCompressor
+
+The Apache-2.0 declaration covers the standalone package materials controlled by
+the maintainers. It does not relicense third-party dependencies or separately
+licensed upstream material; see docs/LICENSING.md and docs/PROVENANCE.md.
