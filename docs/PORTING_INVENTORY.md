@@ -2,6 +2,8 @@
 
 This package is a standalone extraction of the token-saving and query-spend logic from GALXAI. The source was copied into a package-local `src/core` tree and its relative imports were normalized to Node ESM `.js` specifiers.
 
+The port follows a boundary-first rule: preserve reusable reduction, cache, pricing, routing, governance, and accounting concepts; leave application authority at the receiving host. The [architecture guide](ARCHITECTURE.md) explains that strategy, while [provenance notes](PROVENANCE.md) record what still needs review before redistribution.
+
 ## Included source
 
 | Package path | Contents |
@@ -43,3 +45,5 @@ npm test
 ```
 
 The smoke suite covers the package-level pipeline, conversation compaction, concise-output optimization, prefix restructuring, cost accounting, the compaction facade, and semantic caching. `npm pack --dry-run` confirms that compiled output, declarations, README, and docs are included in the package payload.
+
+Documentation and agent handoff material are verified separately with `npm run docs:check`. The check is intentionally structural: it confirms that the canonical guides, knowledge-base index, ADR index, and decision records exist and remain linked. It does not replace code tests, provider reconciliation, or a licensing review.

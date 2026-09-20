@@ -1,5 +1,7 @@
 # Development and release guide
 
+This guide follows the package's [documentation strategy](README.md): source changes, public contracts, agent handoff knowledge, and verification evidence should move together.
+
 ## Local workflow
 
 ```bash
@@ -8,6 +10,7 @@ npm run typecheck
 npm run build
 npm test
 npm pack --dry-run
+npm run docs:check
 ```
 
 `npm test` rebuilds the package and runs the Node test suite in `test/`. The build script first runs `scripts/normalize-relative-specifiers.mjs`; this makes the copied extensionless source imports valid Node ESM imports. The normalizer is idempotent.
@@ -20,6 +23,7 @@ npm pack --dry-run
 4. Preserve input bounds and fail-closed provenance behavior.
 5. Add or update a focused smoke/regression test.
 6. Update [API.md](API.md) or [ARCHITECTURE.md](ARCHITECTURE.md) when the public surface changes.
+7. Update the relevant [knowledge-base page](../.wiki/index.md), and add an ADR when ownership, authority, persistence, or evidence semantics change.
 
 ## Testing guidance
 
@@ -32,8 +36,10 @@ Avoid treating the character-based token estimate as a billing truth. Provider-r
 - `npm run typecheck` passes.
 - `npm test` passes.
 - `npm pack --dry-run` includes `dist`, `README.md`, and `docs`.
+- `npm run docs:check` passes and the package documentation map points to every maintained guide.
 - `package.json` and `package-lock.json` versions match.
 - README/API docs reflect new public methods or modes.
+- Provenance and licensing review is complete for any newly copied source or dependency.
 - No credentials, local database files, `node_modules`, or generated secrets are committed.
 
 ## GitHub repository workflow

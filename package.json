@@ -25,12 +25,15 @@
   "files": [
     "dist",
     "README.md",
+    "CONTRIBUTING.md",
     "docs"
   ],
   "scripts": {
     "build": "node scripts/normalize-relative-specifiers.mjs && tsc -p tsconfig.json",
     "typecheck": "node scripts/normalize-relative-specifiers.mjs && tsc -p tsconfig.json --noEmit",
-    "test": "npm run build && node --test test/*.test.mjs"
+    "test": "npm run build && node --test test/*.test.mjs",
+    "check": "npm run typecheck && npm run docs:check",
+    "docs:check": "node scripts/audit-docs.mjs"
   },
   "devDependencies": {
     "@types/node": "^22.0.0",

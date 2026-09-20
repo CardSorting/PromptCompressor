@@ -2,6 +2,8 @@
 
 The root export is intentionally organized around safe, common entry points. The complete legacy BroccoliDB surface is also available from the `prompt-compressor/broccolidb` subpath.
 
+Read this alongside [Architecture](ARCHITECTURE.md): exported transforms and accounting helpers are deterministic package operations, while provider invocation, durable billing, tenant isolation, and approval remain host responsibilities.
+
 ## Package-level pipeline
 
 ### `PromptCompressor.compress(input, options?)`
@@ -80,3 +82,7 @@ import * as evaluation from 'prompt-compressor/eval';
 ## Error behavior
 
 Invalid input types throw `TypeError`. Configured size or count violations throw `RangeError`. Domain compaction is fail-closed: if provenance verification finds unsupported high-risk facts, the result falls back to the original source and reports `fidelityStatus: 'fallback'`.
+
+## Evidence semantics
+
+The API reports planning metadata such as estimated tokens, avoided tokens, cache hits, and catalog-derived prices. Preserve the original input and the returned metadata with the request record, but label these fields as estimates until the host attaches provider-reported usage. A local cache hit or a lower-cost route can avoid a request; it does not by itself prove a financial saving until the host verifies the provider outcome and accounting policy.

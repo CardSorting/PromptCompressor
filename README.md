@@ -52,11 +52,13 @@ const stream = BroccoliCompactionFacade.compact({
 
 ## Documentation
 
-- [Getting started](docs/GETTING_STARTED.md)
-- [API reference](docs/API.md)
-- [Architecture](docs/ARCHITECTURE.md)
-- [Porting inventory](docs/PORTING_INVENTORY.md)
-- [Development and release guide](docs/DEVELOPMENT.md)
+- Start with the [documentation map](docs/README.md).
+- Read the [architecture and strategy guide](docs/ARCHITECTURE.md) for ownership and proof obligations.
+- Use the [getting started guide](docs/GETTING_STARTED.md) for the first integration.
+- Consult the [API reference](docs/API.md) and [operations guide](docs/OPERATIONS.md) for runtime behavior.
+- Use the [porting inventory](docs/PORTING_INVENTORY.md) and [provenance notes](docs/PROVENANCE.md) when tracing the extraction.
+- The [agent knowledge base](.wiki/index.md) contains handoff rules, patterns, pitfalls, and ADRs.
+- The [development and release guide](docs/DEVELOPMENT.md) covers validation and package maintenance.
 
 ## Development
 
@@ -65,4 +67,14 @@ npm install
 npm test
 ```
 
-The package has no runtime dependencies. TypeScript and Node type definitions are development-only dependencies.
+For the full local gate, run:
+
+```bash
+npm run check
+npm test
+npm run build
+npm pack --dry-run
+npm run docs:check
+```
+
+The package has no runtime dependencies. TypeScript and Node type definitions are development-only dependencies. It transforms and accounts for data locally; the host application still owns model calls, credentials, durable billing records, and provider reconciliation.

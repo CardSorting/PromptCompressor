@@ -2,6 +2,8 @@
 
 PromptCompressor is an in-process Node.js package. It transforms prompt and telemetry representations before an application sends them to a model; it does not make model-provider calls itself.
 
+For orientation, read the [documentation map](README.md), then the [architecture strategy](ARCHITECTURE.md). Agents maintaining the package should also read the [agent playbook](../.wiki/agent/playbook.md).
+
 ## Requirements
 
 - Node.js 20 or newer
@@ -96,3 +98,16 @@ console.log(cost.netCostUsd, cost.totalSavingsUsd, cost.executiveSummary);
 ```
 
 `TokenCostCalculator` is deterministic and offline. The catalog and rate cards are package data; applications should validate them against their own commercial agreements before using them for invoices.
+
+## Recommended host workflow
+
+Use the package as one bounded step in a larger request lifecycle:
+
+1. Capture the source prompt, message history, task type, tenant, and budget in the host.
+2. Transform with `PromptCompressor`, `ContextCompactor`, or `BroccoliCompactionFacade`.
+3. Record the source/result hashes and estimated token metadata.
+4. Let the host choose a model and make the provider call.
+5. Attach provider-reported usage, cache status, latency, and actual charge to the same request record.
+6. Reconcile the estimate with the provider record; investigate large deltas instead of silently rewriting history.
+
+The package's estimates are useful for routing and guardrails. They are not a billing authority.
